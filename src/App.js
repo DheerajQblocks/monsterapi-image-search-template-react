@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import SearchForm from './components/SearchForm';
+import ImageList from './components/ImageList';
 
-function App() {
+const App = () => {
+  const [images, setImages] = useState([]);
+
+  const handleSearch = async (query) => {
+    // Implement your API call here and update the 'images' state.
+    // You will need to make an HTTP request to fetch images based on the query.
+
+    // Example API call using 'fetch':
+    // const response = await fetch(`YOUR_API_ENDPOINT?q=${query}`);
+    // const data = await response.json();
+    // setImages(data);
+
+    // Replace the above code with your API implementation.
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Image Search App</h1>
+      <SearchForm onSearch={handleSearch} />
+      <ImageList images={images} />
     </div>
   );
-}
+};
 
 export default App;
